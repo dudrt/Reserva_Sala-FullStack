@@ -7,7 +7,10 @@ class CadastroPessoa(models.Model):
     nome_comp = models.CharField(max_length=70)
     email = models.CharField(max_length=30)
     senha = models.CharField(max_length=30)
-    endereco = models.IntegerField()
+    endereco_cep = models.IntegerField()
+    estado = models.CharField(max_length=2)
+    cidade = models.CharField(max_length=60)
+    nome_rua = models.CharField(max_length=100)
     nm_casa = models.IntegerField()
 
 class CadastroSala(models.Model):

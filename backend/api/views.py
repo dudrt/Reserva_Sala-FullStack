@@ -13,9 +13,9 @@
 
 
 
-
+from rest_framework import status
 from rest_framework.decorators import api_view
-from django.http import HttpResponse, response, JsonResponse
+from django.http import HttpResponse, response, JsonResponse 
 import json
 from django.shortcuts import render
 from reserva_sala.models import Reservas,CadastroSala,CadastroPessoa
@@ -26,17 +26,36 @@ http_method_names = ['get', 'POST', 'put']
 
 # def index(request):
 #     return render(request, 'index.js')
-
+@api_view(['GET','POST'])
 def Reserva(request):
     if request.method == 'GET':
         reserva = Reservas.objects.all()
-        serializer = ReservaSerializer(reserva, many=true)
+        serializer = ReservaSerializer(reserva, many=True)
         return JsonResponse(serializer.data, safe=False)
     if request.method == 'POST':
         serializer = ReservaSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return response(201)
+
+def Teste(request):
+    return 
+
+@api_view(['GET','POST'])
+def Cadastro_Pessoa(request):
+    if request.method == 'GET':
+        reserva = CadastroPessoa.objects.all()
+        serializer = CadastroPessoaSerializer(reserva, many=True)
+        # return JsonResponse(serializer.data, safe=False)
+        return HttpResponse(request.method)
+    if request.method == 'POST':
+        # serializer = CadastroPessoaSerializer(data=request.data)
+        # if serializer.is_valid():
+        #     serializer.save()
+        #     return HttpResponse(201)
+        # else:
+       return HttpResponse(request.method)
+
 
 
 # @api_view(['GET','POST'])
