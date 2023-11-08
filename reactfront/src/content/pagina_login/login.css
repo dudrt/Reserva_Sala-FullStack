@@ -1,0 +1,25 @@
+.main{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.img{    
+    align-items: center;
+    justify-content: center;
+}
+.div_cadastro{
+    display: grid;
+    width: max-content;
+}
+.div_senha{
+    width: 100%;
+}
+input{
+    margin-bottom: 2%;
+}
+.div_login{
+    margin-top: 10%;
+    display: grid;
+    width: max-content;
+}

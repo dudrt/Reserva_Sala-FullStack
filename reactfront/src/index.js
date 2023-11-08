@@ -2,19 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 // import App from './App';
-import PaginaPrincipal from './content/pagina_principal/pagina_principal';
-import Login from './content/pagina_login/login';
 import reportWebVitals from './reportWebVitals';
-
-
-
+import RotaInicial from './content/rota_inicial/rota_inicial';
+import { MyProvider } from './content/user_info/user_info';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
+  <MyProvider>
   <React.StrictMode>
-    {/* <PaginaPrincipal /> */}
-    <Login/>
+   <RotaInicial/>
   </React.StrictMode>
+  </MyProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function
