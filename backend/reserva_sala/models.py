@@ -21,11 +21,17 @@ class CadastroSala(models.Model):
     tipo = models.CharField(max_length=30)
     lugares = models.CharField(max_length=3)
     
+    def __str__(self) -> str:
+        return self.nome
+    
 class Reservas(models.Model):
     sala = models.ForeignKey(CadastroSala,on_delete=models.DO_NOTHING)
     data = models.DateField(null=True)
     # CPF do locatario
     locatario = models.BigIntegerField(primary_key=True)
+
+    def __str__(self) -> str:
+        return self.locatario
 
 
 # class Cadastro(models.Model):
