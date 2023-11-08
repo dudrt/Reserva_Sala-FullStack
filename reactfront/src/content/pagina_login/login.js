@@ -30,7 +30,7 @@ function Login() {
             axios.get(`https://viacep.com.br/ws/${cep}/json/`)
             .then((response) => {
                 CepTratarDados(response.data);
-              });
+            });
         }
     }
 
@@ -43,7 +43,7 @@ function Login() {
 
     }
 
-    const Cadastrar = () => {
+    const Cadastrar = async ()  => {
         let nome = document.getElementById("nome").value
         let cpf = document.getElementById("cpf").value
         let email = document.getElementById("email").value
@@ -56,16 +56,32 @@ function Login() {
         let nm_casa = document.getElementById("nm_casa").value
 
 
-        axios.post('http://127.0.0.1:8000/cadastropessoa/', {
-            // cpf:cpf,
-            // nome_comp : nome,
-            // email : email,
-            // senha : senha1,
-            // endereco_cep : cep,
-            // estado : estado,
-            // cidade : cidade,
-            // nome_rua : rua,
-            // nm_casa : nm_casa
+        console.log( cpf,
+           nome,
+            email,
+            senha1,
+            cep,
+            estado,
+            cidade,
+            rua,
+             nm_casa)
+
+
+
+        try{
+            axios.post('http://127.0.0.1:8000/cadastropessoa/', {
+            cpf:cpf,
+            nome_comp : nome,
+            email : email,
+            senha : senha1,
+            endereco_cep : cep,
+            estado : estado,
+            cidade : cidade,
+            nome_rua : rua,
+            nm_casa : nm_casa
+
+
+
           })
           .then(function (response) {
             console.log(response)
@@ -73,6 +89,9 @@ function Login() {
           .catch(function (error) {
             console.log(error)
           });
+        }catch(erro){
+            console.log(erro)
+        }
 
     }
 
@@ -113,7 +132,7 @@ function Login() {
                 <input placeholder="Rua" id="rua"></input>
                 <input placeholder="Número da Casa" id="nm_casa"></input>
                 <br/>
-                <button onClick={()=>Cadastrar}>
+                <button onClick={()=>Cadastrar()}>
                     Cadastrar
                 </button>
             </div>
@@ -121,6 +140,5 @@ function Login() {
         </div>
 
     )
-
 
 } export default Login

@@ -26,3 +26,10 @@ Antes de instalar qualquer coisa do backend ter certeza que tem um (venv) em ver
 
 `npm start`
 
+# ----------------------------------------------------------------------------------
+
+## Parte Cadu
+
+Fazer a parte da API no DJANGO (conexão) (GET,POST)
+Fazer a parte de request (GET) no Front para pegar as reservas
+Fazer a parte de request (POST) no Front para salvar as reservas

@@ -13,6 +13,9 @@ class CadastroPessoa(models.Model):
     nome_rua = models.CharField(max_length=100)
     nm_casa = models.IntegerField()
 
+    def __str__(self) -> str:
+        return self.cpf
+
 class CadastroSala(models.Model):
     nome = models.CharField(max_length=70, primary_key=True)
     tipo = models.CharField(max_length=30)
