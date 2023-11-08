@@ -27,7 +27,12 @@ Antes de instalar qualquer coisa do backend ter certeza que tem um (venv) em ver
 `npm start`
 
 # ----------------------------------------------------------------------------------
+## Usuario admin
 
+`login: eduardo`
+`senha: 12345`
+
+# ----------------------------------------------------------------------------------
 ## Parte Cadu
 
 Fazer a parte da API no DJANGO (conexão) (GET,POST)
