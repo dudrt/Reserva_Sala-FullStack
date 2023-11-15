@@ -10,13 +10,13 @@ function  PaginaPrincipal (){
 
 
     return(
-        <div class="body">
+        <div className="body">
             <h1>Página Principal</h1>
             <br/>
-            <button onClick={()=>{setOpcao(FazerReserva)}}>
+            <button onClick={()=>{setOpcao(<FazerReserva/>)}}>
                 Fazer Reservas
             </button>
-            <button onClick={()=>{setOpcao(VerReservas)}}>
+            <button onClick={()=>{setOpcao(<VerReservas/>)}}>
                 Olhar Reservas
             </button>
             {Opcao}

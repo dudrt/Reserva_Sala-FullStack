@@ -19,7 +19,7 @@ from django.http import HttpResponse, response, JsonResponse
 import json
 from django.shortcuts import render
 from reserva_sala.models import Reservas,CadastroSala,CadastroPessoa
-from .serializers import CadastroPessoaSerializer,ReservaSerializer
+from .serializers import CadastroPessoaSerializer,ReservaSerializer, CadastroSalaSerializer
 
 http_method_names = ['get', 'post', 'put']
 
@@ -36,6 +36,30 @@ def Cadastro_Pessoa(request):
         return JsonResponse(serializer.data, safe=False)
     if request.method == 'POST':
         serializer = CadastroPessoaSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return HttpResponse(200)
+        
+@api_view(['GET','POST'])
+def Cadastro_Sala(request):
+    if request.method == 'GET':
+        reserva = CadastroSala.objects.all()
+        serializer = CadastroSalaSerializer(reserva, many=True)
+        return JsonResponse(serializer.data, safe=False)
+    if request.method == 'POST':
+        serializer = CadastroSalaSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return HttpResponse(200)
+        
+@api_view(['GET','POST'])
+def Reserva(request):
+    if request.method == 'GET':
+        reserva = Reservas.objects.all()
+        serializer = ReservaSerializer(reserva, many=True)
+        return JsonResponse(serializer.data, safe=False)
+    if request.method == 'POST':
+        serializer = ReservaSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return HttpResponse(200)

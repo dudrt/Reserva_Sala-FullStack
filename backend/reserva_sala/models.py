@@ -14,8 +14,8 @@ class CadastroPessoa(models.Model):
     nm_casa = models.IntegerField()
 
     def __str__(self) -> str:
-        return self.cpf
-
+        return str(self.cpf)
+    
 class CadastroSala(models.Model):
     nome = models.CharField(max_length=70, primary_key=True)
     tipo = models.CharField(max_length=30)
@@ -31,7 +31,7 @@ class Reservas(models.Model):
     locatario = models.BigIntegerField(primary_key=True)
 
     def __str__(self) -> str:
-        return self.locatario
+        return str(self.locatario)
 
 
 # class Cadastro(models.Model):
