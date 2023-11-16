@@ -14,7 +14,7 @@ return(
     {EstadoLogin ? (
         <PaginaPrincipal />
       ):(
-        <PaginaPrincipal />
+        <Login />
       )}
 </div>
 )

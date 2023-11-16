@@ -7,7 +7,7 @@ import './login.css'
 
 
 function Login() {
-    const { setEstadoLogin } = useMyContext();
+    const { EstadoLogin,setEstadoLogin } = useMyContext();
     const [login, setLogin] = useState(true)
 
     const LoginFunc = async () => {
@@ -16,20 +16,19 @@ function Login() {
         
         axios.get(`http://127.0.0.1:8000/cadastropessoa/`)
         .then((response) => {
-            for(let i=0;i<response.lenght;i++){
-                if(response[i].email===email){
-                    if(response[i].senha===senha){
-                        
+            let array = response.data
+            console.log(array.len)
+            for(let i=0;i<array.length;i++){
+                if(array[i].email===email){
+                    if(array[i].senha===senha){
                         setEstadoLogin(true)
-
-                    }else{
-                        document.getElementById("cadastrado").innerHTML="<label style='color:red'>Informações incorretas!</label>"
                     }
-                }else{
-                    document.getElementById("cadastrado").innerHTML="<label style='color:red'>Informações incorretas!</label>"
-
-                }
+                
             }
+        }
+        if(!EstadoLogin){
+            document.getElementById("cadastrado").innerHTML="<label style='color:red','font-size:5'>Email ou senha incorreto!</label>"
+        }
         }).catch(function(error){
             if(error.request.status===0){
                 document.getElementById("cadastrado").innerHTML="<label style='color:red','font-size:5'>Servidor Offline.</label>"
@@ -143,7 +142,7 @@ function Login() {
                     <div id="cadastrado"></div>
                     <input placeholder="Digite seu email" id="email"></input>
                     <input placeholder="Digite sua senha" id="senha"></input>
-                    <button onClick={() =>LoginFunc}>Fazer Login</button><br/>
+                    <button onClick={() =>LoginFunc()}>Fazer Login</button><br/>
                     <button onClick={() =>setLogin(false)}>Fazer Cadastro</button>
                 </div>
             ) : (
