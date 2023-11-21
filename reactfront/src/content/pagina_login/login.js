@@ -7,7 +7,7 @@ import './login.css'
 
 
 function Login() {
-    const { EstadoLogin,setEstadoLogin } = useMyContext();
+    const { EstadoLogin,setEstadoLogin, setCPF, setNome } = useMyContext();
     const [login, setLogin] = useState(true)
 
     const LoginFunc = async () => {
@@ -22,6 +22,8 @@ function Login() {
                 if(array[i].email===email){
                     if(array[i].senha===senha){
                         setEstadoLogin(true)
+                        setCPF(array[i].cpf)
+                        setNome(array[i].nome)
                     }
                 
             }
