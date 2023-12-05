@@ -9,7 +9,7 @@ export const MyProvider = ({ children }) => {
   const [Nome, setNome] = useState("")
 
   return (
-    <MyContext.Provider value={{ EstadoLogin, setEstadoLogin }}>
+    <MyContext.Provider value={{ EstadoLogin, setEstadoLogin,CPF,setCPF,Nome,setNome }}>
       {children}
     </MyContext.Provider>
   );

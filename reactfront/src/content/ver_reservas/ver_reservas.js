@@ -5,6 +5,12 @@ import axios from 'axios';
 function VerReservas() {
   const [dados, setDados] = useState([]);
 
+
+  useEffect(() => {
+    puxar();
+  }, []);
+
+
   const puxar = async () => {
     axios.get(`http://127.0.0.1:8000/reservas/`)
     .then((response) => {
@@ -15,7 +21,6 @@ function VerReservas() {
     console.log(error)
 })
     };
-        puxar(); 
   return (
     <div>
       <h2>Lista de Itens</h2>

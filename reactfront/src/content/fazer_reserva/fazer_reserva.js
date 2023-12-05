@@ -15,7 +15,6 @@ function FazerReserva(){
               console.error('Erro ao carregar salas:', error);
             }
           };
-      
           puxar();
         }, []);
         
@@ -29,8 +28,7 @@ console.log(document.getElementById("sala").value)
             axios.post('http://127.0.0.1:8000/reservas/', {
             sala : sala,
             data : data,
-            locatario: locatario,
-            
+            locatario: locatario
           })
           .then(function (response) {
          console.log('foi', response)

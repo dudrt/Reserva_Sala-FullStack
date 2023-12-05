@@ -1,5 +1,6 @@
-.main{
-
+/* .main{
+    background-color: #1A13F8;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -14,6 +15,8 @@
 }
 .div_senha{
     width: 100%;
+    align-items: center;
+    justify-content: center;
 }
 input{
     margin-bottom: 2%;
@@ -22,4 +25,65 @@ input{
     margin-top: 10%;
     display: grid;
     width: max-content;
-}
+} */
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .div_login,
+  .div_cadastro {
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h3 {
+    text-align: center;
+    color: #333;
+  }
+  
+  input {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px;
+    box-sizing: border-box;
+  }
+  
+  .div_senha {
+    position: relative;
+  }
+  
+  .img {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+  
+  #senha_info,
+  #cadastro_info {
+    margin-top: 10px;
+    color: #ff0000; /* Cor vermelha para mensagens de erro */
+  }
+  
+  button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4caf50; /* Cor verde para botões de ação */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  

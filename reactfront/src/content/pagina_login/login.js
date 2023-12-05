@@ -29,12 +29,22 @@ function Login() {
             }
         }
         if(!EstadoLogin){
-            document.getElementById("cadastrado").innerHTML="<label style='color:red','font-size:5'>Email ou senha incorreto!</label>"
+            
+        document.getElementById("nome").value = ""
+        document.getElementById("cpf").value = ""
+        document.getElementById("email").value = ""
+        document.getElementById("senha1").value = ""
+        document.getElementById("senha2").value = ""
+        document.getElementById("cep").value = ""
+        document.getElementById("estado").value = ""
+        document.getElementById("cidade").value = ""
+        document.getElementById("rua").value = ""
+        document.getElementById("nm_casa").value = ""
         }
         }).catch(function(error){
-            if(error.request.status===0){
+            
                 document.getElementById("cadastrado").innerHTML="<label style='color:red','font-size:5'>Servidor Offline.</label>"
-            }
+            
         })
         
 
@@ -43,7 +53,6 @@ function Login() {
 
     }
     const CepFunc = async () =>{
-
         let cep = document.getElementById("cep").value
 
         if(cep.length===8){
@@ -55,12 +64,9 @@ function Login() {
     }
 
     const CepTratarDados = async (dados) =>{
-        console.log(dados)
-
         document.getElementById("estado").value = dados.uf
         document.getElementById("cidade").value = dados.localidade
         document.getElementById("rua").value = dados.logradouro
-
     }
 
     const Cadastrar = async ()  => {
@@ -74,7 +80,6 @@ function Login() {
         let cidade = document.getElementById("cidade").value
         let rua = document.getElementById("rua").value
         let nm_casa = document.getElementById("nm_casa").value
-
 
         if(senha1!==senha2){
             document.getElementById("cadastro_info").innerHTML="<label style='color:red'>As senhas não coincidem!</label>"
@@ -99,9 +104,9 @@ function Login() {
             cidade : cidade,
             nome_rua : rua,
             nm_casa : nm_casa
-
           })
           .then(function (response) {
+            console.log(response)
             if(response.status===200){
                 setLogin(true)
                 document.getElementById("cadastrado").innerHTML="<label>Cadastro realizado com sucesso!</label>"
@@ -110,9 +115,8 @@ function Login() {
             }
           })
           .catch(function (error) {
-            if(error.request.status===0){
+            if(error.status===0){
                 document.getElementById("cadastro_info").innerHTML="<label style='color:red','font-size:5'>Servidor Offline.</label>"
-
             }else{
                 console.log(error)
             }
@@ -120,7 +124,6 @@ function Login() {
         }catch(erro){
             console.log("erro no catch do try",erro)
         }
-
     }
 
     const VerificarSenha = async () =>{
@@ -132,9 +135,7 @@ function Login() {
         }else{
             document.getElementById("senha_info").innerHTML=""
         }
-
     }
-
 
     return (
         <div className="main">
@@ -175,7 +176,6 @@ function Login() {
                         }else{
                             document.getElementById("img2").src=olho_invisivel
                             document.getElementById("senha2").type="password"
-
                         }
                     }} ></img>
                 </div>
@@ -185,7 +185,6 @@ function Login() {
                 <input placeholder="Cidade" id="cidade"></input>
                 <input placeholder="Rua" id="rua"></input>
                 <input placeholder="Número da Casa" id="nm_casa"></input>
-                
                 <div id="cadastro_info"></div>
                 <button onClick={()=>Cadastrar()}>
                     Cadastrar
