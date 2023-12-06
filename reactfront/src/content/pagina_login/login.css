@@ -73,7 +73,7 @@ input{
   }
   
   button {
-    width: 100%;
+    width: 50%;
     padding: 10px;
     background-color: #4caf50; /* Cor verde para botões de ação */
     color: #fff;

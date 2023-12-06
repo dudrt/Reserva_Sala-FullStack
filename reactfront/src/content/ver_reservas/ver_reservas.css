@@ -1,0 +1,22 @@
+/* Estilo para a lista de itens */
+.lista-itens {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .lista-itens li {
+    margin-right: 20px; /* Adicione um espaçamento entre os itens */
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  /* Estilo para o título da lista */
+  h2 {
+    color: #333;
+  }
+  

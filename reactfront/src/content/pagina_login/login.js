@@ -145,8 +145,8 @@ function Login() {
                     <div id="cadastrado"></div>
                     <input placeholder="Digite seu email" id="email"></input>
                     <input placeholder="Digite sua senha" id="senha"></input>
-                    <button onClick={() =>LoginFunc()}>Fazer Login</button><br/>
-                    <button onClick={() =>setLogin(false)}>Fazer Cadastro</button>
+                    <button style={{width: "100%"}} onClick={() =>LoginFunc()} >Fazer Login</button><br/>
+                    <button style={{width: "100%"}} onClick={() =>setLogin(false)}>Fazer Cadastro</button>
                 </div>
             ) : (
             <div className='div_cadastro'>
@@ -186,11 +186,11 @@ function Login() {
                 <input placeholder="Rua" id="rua"></input>
                 <input placeholder="Número da Casa" id="nm_casa"></input>
                 <div id="cadastro_info"></div>
-                <button onClick={()=>Cadastrar()}>
+                <button style={{width: "100%"}} onClick={()=>Cadastrar()}>
                     Cadastrar
                 </button>
                 
-                <button onClick={() =>setLogin(true)}>
+                <button style={{width: "100%"}} onClick={() =>setLogin(true)}>
                     Voltar ao Login
                 </button>
             </div>

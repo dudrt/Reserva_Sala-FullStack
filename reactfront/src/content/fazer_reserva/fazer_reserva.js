@@ -56,7 +56,7 @@ console.log(document.getElementById("sala").value)
                     ))}
                 </select>
                 <input placeholder="data" id="data"/>
-                <input placeholder="locatario" type="number" id="locatario"/>
+                <input placeholder="locatario" type="number" maxLength={11} id="locatario"  />
                 
                 <button onClick={()=>Cadastrar()}>
                     Cadastrar
